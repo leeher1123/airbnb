@@ -22,7 +22,9 @@ const Profile = () => (
 
 const Container = styled.div`
   display: flex;
+  flex: 1;
   align-items: center;
+  justify-content: flex-end;
   color: #fff;
   font-size: 14px;
 `;
@@ -31,6 +33,7 @@ const Contents = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-right: 10px;
   svg {
     width: 16px;
     height: 16px;

@@ -16,11 +16,15 @@ const Header = () => (
 const Container = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 80px;
   background: #000;
+  padding: 0 80px;
+  margin-top: 50px;
 `;
 
 const Logo = styled.div`
+  flex: 1;
   svg {
     width: 102px;
     height: 32px;
