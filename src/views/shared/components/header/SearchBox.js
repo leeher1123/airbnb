@@ -1,10 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { BiSearch } from 'react-icons/bi';
+import cn from 'classnames';
 
-const SearchBox = () => (
-  <Container>
+const SearchBox = ({ active }) => (
+  <Container className={cn({ isActive: active })}>
     <Form>
       <SearchItem className="first">
         <h4>위치</h4>
@@ -32,9 +33,25 @@ const SearchBox = () => (
   </Container>
 );
 
+const boxFade = keyframes`
+  from {
+    transform: scale(1, 1) translateY(0px);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(0.3, 0.75) translateY(-50px);
+    opacity: 0;
+    visibility: hidden;
+  }
+`;
+
 const Container = styled.div`
+  //padding-top: 130px;
   background: #000;
-  padding-bottom: 16px;
+  padding-bottom: 30px;
+  &.isActive {
+    animation: ${boxFade} 2s 1s infinite linear alternate;
+  }
 `;
 
 const Form = styled.div`

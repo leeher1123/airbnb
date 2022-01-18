@@ -20,7 +20,6 @@ const Container = styled.div`
   height: 80px;
   background: #000;
   padding: 0 80px;
-  margin-top: 50px;
 `;
 
 const Logo = styled.div`
