@@ -1,25 +1,34 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { IconLogo } from '../../../../icons';
 import Menu from './Menu';
 import Profile from './Profile';
 
-const Header = () => (
-  <Container>
-    <Logo><IconLogo /></Logo>
-    <Menu />
-    <Profile />
+const Header = ({ isScroll }) => (
+  <Container isScroll={isScroll}>
+    <Logo isScroll={isScroll}><IconLogo /></Logo>
+    {
+      isScroll || <Menu />
+    }
+    <Profile isScroll={isScroll} />
   </Container>
 );
 
 const Container = styled.div`
+  ${({ isScroll }) => isScroll && css`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: .2s;
+  `}
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 80px;
-  background: #000;
   padding: 0 80px;
+  background: ${({ isScroll }) => (isScroll ? '#fff' : '#000')}
 `;
 
 const Logo = styled.div`
@@ -27,7 +36,7 @@ const Logo = styled.div`
   svg {
     width: 102px;
     height: 32px;
-    fill: #fff;
+    fill: ${({ isScroll }) => (isScroll ? '#FF385C' : '#fff')}
   }
 `;
 

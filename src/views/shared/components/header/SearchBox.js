@@ -2,11 +2,10 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import { BiSearch } from 'react-icons/bi';
-import cn from 'classnames';
 
-const SearchBox = ({ active }) => (
-  <Container className={cn({ isActive: active })}>
-    <Form>
+const SearchBox = ({ isScroll }) => (
+  <Container>
+    <Form isScroll={isScroll}>
       <SearchItem className="first">
         <h4>위치</h4>
         <Input type="text" placeholder="어디로 여행가세요?" />
@@ -33,13 +32,22 @@ const SearchBox = ({ active }) => (
   </Container>
 );
 
-const boxFade = keyframes`
+const slideDown = keyframes`
+  from {
+    transform: scale(0.3, 0.75) translateY(-25px);
+  }
+  to {
+    transform: scale(1, 1) translateY(0px);
+  }
+`;
+
+const slideUp = keyframes`
   from {
     transform: scale(1, 1) translateY(0px);
     opacity: 0.5;
   }
   to {
-    transform: scale(0.3, 0.75) translateY(-50px);
+    transform: scale(0.3, 0.75) translateY(-25px);
     opacity: 0;
     visibility: hidden;
   }
@@ -49,9 +57,6 @@ const Container = styled.div`
   //padding-top: 130px;
   background: #000;
   padding-bottom: 30px;
-  &.isActive {
-    animation: ${boxFade} 2s 1s infinite linear alternate;
-  }
 `;
 
 const Form = styled.div`
@@ -62,6 +67,10 @@ const Form = styled.div`
   border-radius: 32px;
   display: flex;
   align-items: center;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-name: ${({ isScroll }) => (isScroll ? slideUp : slideDown)};
 `;
 
 const SearchItem = styled.div`

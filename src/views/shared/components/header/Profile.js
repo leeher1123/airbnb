@@ -5,9 +5,9 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 
 import { IconGraphics, IconUser } from '../../../../icons';
 
-const Profile = () => (
+const Profile = ({ isScroll }) => (
   <Container>
-    <Contents>
+    <Contents isScroll={isScroll}>
       <p>호스트 되기</p>
       <p><IconGraphics /></p>
     </Contents>
@@ -25,7 +25,6 @@ const Container = styled.div`
   flex: 1;
   align-items: center;
   justify-content: flex-end;
-  color: #fff;
   font-size: 14px;
 `;
 
@@ -37,10 +36,11 @@ const Contents = styled.div`
   svg {
     width: 16px;
     height: 16px;
-    fill: #fff;
+    fill: ${({ isScroll }) => (isScroll ? '#000' : '#fff')};
   }
   p {
     padding: 12px;
+    color: ${({ isScroll }) => (isScroll ? '#000' : '#fff')};
   }
 `;
 
