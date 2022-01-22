@@ -48,8 +48,9 @@ const slideUp = keyframes`
   }
   to {
     transform: scale(0.3, 0.75) translateY(-25px);
-    opacity: 0;
     visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
   }
 `;
 
@@ -96,7 +97,7 @@ const Input = styled.input`
   border: 0;
 `;
 
-const Button = styled.div`
+export const Button = styled.div`
   width: 52px;
   background: #FF385C;
   border-radius: 50%;

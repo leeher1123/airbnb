@@ -17,9 +17,9 @@ const Visual = () => (
 );
 
 const Container = styled.div`
-  padding: 5px 0 96px;
+  padding-top: 5px;
   background: #000;
-  height: 912px;
+  height: 800px;
 `;
 
 const Image = styled.div`

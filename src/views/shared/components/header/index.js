@@ -4,12 +4,13 @@ import styled, { css } from 'styled-components';
 import { IconLogo } from '../../../../icons';
 import Menu from './Menu';
 import Profile from './Profile';
+import SearchMenu from './SearchMenu';
 
 const Header = ({ isScroll }) => (
   <Container isScroll={isScroll}>
     <Logo isScroll={isScroll}><IconLogo /></Logo>
     {
-      isScroll || <Menu />
+      isScroll ? <SearchMenu /> : <Menu />
     }
     <Profile isScroll={isScroll} />
   </Container>
@@ -22,6 +23,7 @@ const Container = styled.div`
     left: 0;
     right: 0;
     transition: .2s;
+    z-index: 1000;
   `}
   display: flex;
   align-items: center;
