@@ -7,15 +7,12 @@ import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 
 import App from './App';
-import { theme } from './style/theme';
 import store from './redux/store';
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
+      <App />
     </Provider>
   </BrowserRouter>,
   document.getElementById('root'),

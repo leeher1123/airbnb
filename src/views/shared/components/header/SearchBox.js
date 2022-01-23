@@ -1,36 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import { BiSearch } from 'react-icons/bi';
 
-const SearchBox = ({ isScroll }) => (
-  <Container>
-    <Form isScroll={isScroll}>
-      <SearchItem className="first">
-        <h4>위치</h4>
-        <Input type="text" placeholder="어디로 여행가세요?" />
-        <Bar />
-      </SearchItem>
-      <SearchItem>
-        <h4>체크인</h4>
-        <p>날짜 입력</p>
-        <Bar />
-      </SearchItem>
-      <SearchItem>
-        <h4>체크아웃</h4>
-        <p>날짜 입력</p>
-        <Bar />
-      </SearchItem>
-      <SearchItem>
-        <h4>인원</h4>
-        <p>게스트 추가</p>
-      </SearchItem>
-      <Button>
-        <span><BiSearch /></span>
-      </Button>
-    </Form>
-  </Container>
-);
+const SearchBox = ({ isScroll }) => {
+  const [value, setValue] = useState('');
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(value);
+  };
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
+  return (
+    <Container>
+      <Form isScroll={isScroll} onSubmit={onSubmit}>
+        <SearchItem className="first">
+          <h4>위치</h4>
+          <Input type="text" placeholder="어디로 여행가세요?" onChange={onChange} value={value} />
+          <Bar />
+        </SearchItem>
+        <SearchItem>
+          <h4>체크인</h4>
+          <p>날짜 입력</p>
+          <Bar />
+        </SearchItem>
+        <SearchItem>
+          <h4>체크아웃</h4>
+          <p>날짜 입력</p>
+          <Bar />
+        </SearchItem>
+        <SearchItem>
+          <h4>인원</h4>
+          <p>게스트 추가</p>
+        </SearchItem>
+        <Button>
+          <span><BiSearch /></span>
+        </Button>
+      </Form>
+    </Container>
+  );
+};
 
 const slideDown = keyframes`
   from {
@@ -95,6 +105,7 @@ const SearchItem = styled.div`
 
 const Input = styled.input`
   border: 0;
+  outline: 0;
 `;
 
 export const Button = styled.div`

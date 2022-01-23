@@ -8,7 +8,7 @@ const PlaceList = () => (
   <Container>
     <List>
       {
-        appData.map((item) => <PlaceItem item={item} />)
+        appData.map((item) => <PlaceItem item={item} key={item.id} />)
       }
     </List>
   </Container>
