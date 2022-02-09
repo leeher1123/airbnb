@@ -4,35 +4,47 @@ import styled from 'styled-components';
 const PlaceItem = ({ item }) => (
   <Container>
     <Thumb>
-      <img src={item.src} alt="서울 이미지" />
+      <img src={item.src} alt="지역 이미지" />
+      <Contents className={item.color}>
+        <Content>
+          <h4>{item.placeName}</h4>
+          <p>{item.street}</p>
+        </Content>
+      </Contents>
     </Thumb>
-    <Content className={item.color}>
-      <h4>{item.placeName}</h4>
-      <p>{item.street}</p>
-    </Content>
   </Container>
 );
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  + div {
+    margin-left: 16px;
+  }
 `;
 
 const Thumb = styled.div`
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   overflow: hidden;
-  height: 201.33px;
+  padding-bottom: 70%;
   img {
+    position: relative;
+    z-index: 100;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+  position: relative;
 `;
 
-const Content = styled.div`
+const Contents = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   padding: 24px 16px 16px 16px;
-  height: 50%;
   color: #fff;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
@@ -46,18 +58,22 @@ const Content = styled.div`
     font-size: 20px;
     font-weight: 400;
   }
-  &.seoul {
-    background-color: #D93A30;
+  &.jeju {
+    background-color: #D93B30;
   }
-  &.incheon {
-    background-color: #BC196D;
+  &.busan {
+    background-color: #DE3151;
   }
-  &.daegu {
-    background-color: #CC2D4A;
+  &.gangleung {
+    background-color: #BC1A6E;
   }
-  &.daejeon {
-    background-color: #DD3150;
+  &.sogcho {
+    background-color: #D93B30;
   }
+`;
+
+const Content = styled.div`
+  padding-top: 73%;
 `;
 
 export default PlaceItem;

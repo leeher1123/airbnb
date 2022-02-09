@@ -14,13 +14,14 @@ const Place = () => (
 
 const Container = styled.div`
   padding: 96px 0 0;
-  margin: 0 80px;
+  margin: 0 160px;
 `;
 
 const Section = styled.div`
   h2 {
-    font-size: 42px;
+    font-size: 41px;
     font-weight: 600;
+    letter-spacing: -1px;
     line-height: 47px;
     color: #222;
     padding-bottom: 48px;

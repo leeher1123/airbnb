@@ -32,8 +32,8 @@ const Experience = () => (
 );
 
 const Container = styled.div`
-  margin: 0 80px;
   padding: 96px 0;
+  margin: 0 160px;
 `;
 
 const Title = styled.div`
