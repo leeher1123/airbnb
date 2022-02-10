@@ -17,24 +17,24 @@ const Visual = () => (
 );
 
 const Container = styled.div`
-  padding-top: 5px;
   background: #000;
-  height: 800px;
+  padding: 5px 0 96px;
 `;
 
 const Image = styled.div`
+  max-width: calc(min(1760px, 100%) - 160px); // 이거 어떻게해서 나왔는지 분석 !!!!!!!!!!!!!!!!
   margin: 0 auto;
   background-image: url('https://images.unsplash.com/photo-1519708495087-ca1b71df408c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  max-width: 1280px;
-  height: 640px;
+  height: 810px;
   padding: 0 80px 72px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  border-radius: 12px;
   img {
     width: 100%;
     height: 100%;

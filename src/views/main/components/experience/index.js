@@ -43,15 +43,15 @@ const Title = styled.div`
 `;
 
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 628px 628px;
-  grid-template-rows: 717.703px;
-  column-gap: 24px;
+  display: flex;
 `;
 
 const Item = styled.div`
+  position: relative;
+  flex: 1;
   padding: 80px;
   border-radius: 12px;
+  padding-top: 50%;
   &.first {
     background-image: url('https://images.unsplash.com/photo-1531084753305-8d3c45df1424?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80');
     background-size: cover;
@@ -60,9 +60,15 @@ const Item = styled.div`
     background-image: url('https://images.unsplash.com/photo-1546825551-8475648fcfe9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
     background-size: cover;
   }
+  + div {
+    margin-left: 24px;
+  }
 `;
 
 const Content = styled.div`
+  position: absolute;
+  top: 80px;
+  left: 80px;
   display: flex;
   flex-direction: column;
   h2 {
